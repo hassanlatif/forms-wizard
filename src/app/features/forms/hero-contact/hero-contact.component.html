@@ -1,0 +1,28 @@
+<form [formGroup]="form" [connectForm]="formPath">
+
+    <div class="form-group required">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone">
+        <field-error controlName="phone" errorType="required">
+          Please provide phone number
+        </field-error>
+      </div>
+    
+      <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input type="text" class="form-control" id="mobile" formControlName="mobile">
+        <field-error controlName="mobile" errorType="required">
+          Please provide mobile number
+        </field-error>
+      </div>
+
+      
+    <div class="form-group required">
+        <label for="addressText">Address</label>
+        <address-control formControlName="address"></address-control>
+        <field-error controlName="address" errorType="required">
+          Please provide contact address
+        </field-error>
+      </div>
+
+</form>

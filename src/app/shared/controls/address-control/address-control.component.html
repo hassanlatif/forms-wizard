@@ -1,0 +1,106 @@
+<div [formGroup]="addressTextForm" class="form-group">
+  <div class="form-row">
+    <div class="col-11">
+      <input type="text" class="form-control" id="addressText" readOnly formControlName="addressText" style="cursor: default;">
+    </div>
+    <div class="col-1">
+      <button type="button" class="btn btn-outline-dark" (click)="openAddressForm(addressContent)">
+        <fa-icon [icon]="faHome" style="cursor: pointer;"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #addressContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Update Address</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="addressForm">
+    <div class="modal-body" ngbAutofocus>
+      <p>Please enter address details.</p>
+      <br>
+      <div class="form-group">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-4 form-group">
+              <label for="BuildingName">
+                Building Name
+              </label>
+            </div>
+            <div class="col-8">
+              <input type="text" formControlName="BuildingName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.BuildingName.errors }" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 form-group">
+              <label for="StreetNumber">
+                Street Number
+              </label>
+            </div>
+            <div class="col-8">
+              <input type="text" formControlName="StreetNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StreetNumber.errors }" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 form-group required">
+              <label for="StreetName">
+                  Street Name
+              </label>
+            </div>
+            <div class="col-8">
+              <input type="text" formControlName="StreetName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StreetName.errors }" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 form-group required">
+              <label for="Suburb">
+                Suburb
+              </label>
+            </div>
+            <div class="col-8">
+              <input type="text" formControlName="Suburb" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Suburb.errors }" />
+              <div *ngIf="submitted && f.Suburb.errors" class="invalid-feedback">
+                <div *ngIf="f.Suburb.errors.required">Suburb is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 form-group required">
+              <label for="Postcode">
+                Postcode
+              </label>
+            </div>
+            <div class="col-8">
+              <input type="text" formControlName="Postcode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Postcode.errors }" />
+              <div *ngIf="submitted && f.Postcode.errors" class="invalid-feedback">
+                <div *ngIf="f.Postcode.errors.required">Postcode is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 form-group required">
+              <label for="State">
+                State
+              </label>
+            </div>
+            <div class="col-8">
+              <input type="text" formControlName="State" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.State.errors }" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
+      <button type="button" class="btn btn-primary" (click)="updateAddress()">Update address</button>
+    </div>
+  </form>
+</ng-template>

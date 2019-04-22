@@ -1,0 +1,3 @@
+<div *ngIf="isInvalid && ((isFormVisited$ | async) || isTouched)" class="invalid-feedback">
+  <ng-content></ng-content>
+</div>

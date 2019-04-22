@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "form": {
+      "description": "Schematic to create forms",
+      "factory": "./form-schematics/index#formSchematics",
+      "schema": "./form-schematics/schema.json"
+    }
+  }
+}

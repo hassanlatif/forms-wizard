@@ -1,0 +1,25 @@
+<div>
+  <label [class.disabled]="(files | async).length == this.maxFileNumber" for="fileUploadControl-{{id}}" class="custom-file-upload">
+    <fa-icon [icon]="faUpload" [class.disabled]="(files | async).length == this.maxFileNumber"></fa-icon> Choose File
+  </label>
+  <input id="fileUploadControl-{{id}}" [attr.disabled]="(files | async).length == this.maxFileNumber ? '' : null" type="file">
+</div>
+
+<table *ngIf="(files | async).length>0" class="table table-sm table-bordered table-responsive-sm" style="max-width: 750px;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">File Name</th>
+      <th scope="col">File Size</th>
+      <th scope="col" style="text-align: center;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fileRef of (files | async); let i=index;" class="table-secondary">
+      <td scope="row">{{fileRef.file.name}}</td>
+      <td>{{ (fileRef.file.size / 1024) | number: '1.2-2' }} kb </td>
+      <td style="text-align: center;">
+        <fa-icon [icon]="faTrash" (click)="removeFile(fileRef.id)" style="cursor: pointer;"></fa-icon>
+      </td>
+    </tr>
+  </tbody>
+</table>

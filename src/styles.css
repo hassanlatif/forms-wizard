@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.form-group.required .col-form-label:after {
+    content:" *";
+    color:red;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -25px;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 0.5s linear infinite; /* Safari */
+    animation: spin 0.5s linear infinite;
+
+
+}
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.dark-overlay {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    min-height: 100%;
+    display: block;
+    overflow: auto;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.25;
+    opacity: .25;
+    filter: alpha(opacity=80);
+}
+
+
+.invalid-feedback {
+    display: block !important;
+}
+
+.form-group.required > label:after {
+    content:" *";
+    color:red;
+  }
+
+.form-check.required > label:after {
+    content:" *";
+    color:red;
+}
+
+.col.required > label:after {
+    content:" *";
+    color:red;
+}
+
+@media print {
+    .print-hidden * {
+        visibility : hidden;
+    }
+
+    .print-visible,
+    .print-visible * {
+        visibility : visible;
+    }
+}

@@ -1,0 +1,46 @@
+<form [formGroup]="form" [connectForm]="formPath">
+
+  <div class="form-group required">
+    <label for="title">Title</label>
+    <select class="form-control" id="title" formControlName="title" name="title">
+      <option value="null" selected hidden>Select</option>
+      <option *ngFor="let title of titles" [value]="title.v">{{title.l}}</option>
+    </select>
+    <field-error controlName="title" errorType="required">
+      Please provide title
+    </field-error>
+  </div>
+
+  <div class="form-group required">
+    <label for="surname">Surname</label>
+    <input type="text" class="form-control" id="surname" formControlName="surname">
+    <field-error controlName="surname" errorType="required">
+      Please provide Surname
+    </field-error>
+  </div>
+
+  <div class="form-group required">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control" id="firstName" formControlName="firstName">
+    <field-error controlName="firstName" errorType="required">
+      Please provide First name
+    </field-error>
+  </div>
+
+  <div class="form-group required">
+    <label for="dateOfBirth">Date of birth</label>
+    <div class="input-group" #dpControl>
+      <input class="form-control" placeholder="dd/mm/yyyy" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth"
+        ngbDatepicker #dp="ngbDatepicker" [minDate]="{year: 1918, month: 1, day: 1}">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
+          <img src="assets/images/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+        </button>
+      </div>
+    </div>
+    <field-error controlName="dateOfBirth" errorType="required">
+      Please provide date of birth
+    </field-error>
+  </div>
+
+</form>

@@ -1,0 +1,52 @@
+.activated {
+    font-weight : bold;
+}
+
+.flex-container {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : nowrap;
+    align-items    : center;
+}
+
+.form-steps .nav-link {
+    cursor : pointer;
+}
+
+.form-steps .number-circle {
+    margin-right : 1rem;
+}
+
+.number-circle {
+    border-radius : 50%;
+    width         : 30px;
+    height        : 30px;
+    background    : #FFF;
+    border        : 2px solid #666;
+    text-align    : center;
+    float         : left;
+}
+
+.invalid-form-number {
+    background   : red;
+    color        : white;
+    border-color : red;
+}
+
+.valid-form-number {
+    background   : green;
+    color        : white;
+    border-color : green;
+}
+
+.disable-step {
+    color        : gray;
+    border-color : gray;    
+    /* cursor: not-allowed; */
+    /* pointer-events: none; */
+    background: white;
+}
+
+.hide-step {
+    display: none;
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "FormSchematics",
+    "title": "Form Options Schema",
+    "type": "object",
+    "description": "Create a Form Component",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name of form",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt" : "Enter name of form:"
+        },
+        "project" : {
+            "type" : "string",
+            "description": "Generate in specific project"
+        }
+    },
+    "required": ["name"]
+}

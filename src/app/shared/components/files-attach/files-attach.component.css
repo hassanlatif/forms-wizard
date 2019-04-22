@@ -1,0 +1,24 @@
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #008CC4 !important;
+    border-color: #008CC4;
+}
+fa {
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: lightgrey;
+}

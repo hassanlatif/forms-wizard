@@ -1,0 +1,13 @@
+<div style="height: 100%; width: 100%; position: absolute;">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div style="min-height: 70%; width: 100%; position: relative;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<div class="dark-overlay" *ngIf="loading">
+  <div class="loader"></div>
+</div>

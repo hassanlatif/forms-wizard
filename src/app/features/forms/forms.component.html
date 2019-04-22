@@ -1,0 +1,58 @@
+<div class="container-fluid mt-3">
+    <div class="row m-1">
+        <div class="col-1 col-md-2 form-steps">
+            <ol class="nav flex-column">
+
+                <li class="nav-item" *ngFor="let step of steps; let i = index;">
+                    <a class="nav-link" [ngClass]="{'activated': activeRoute === step.route}" (click)="navigationTo(step.route)">
+                        <div class="number-circle" [ngClass]="{
+                            'invalid-form-number': (isFormVisited$(step.route) | async) && !(isFormValid$(step.route) | async),
+                            'valid-form-number': (isFormVisited$(step.route) | async) && (isFormValid$(step.route) | async)}">
+                            {{i + 1}}
+                        </div>
+                        <span class="d-none d-md-inline">{{step.title}}</span>
+                    </a>
+            </ol>
+        </div>
+
+        <div class="col col-md-8">
+            <div class="container">
+
+                <div class="row m-1">
+                    <div class="col-3 p-2 text-left">
+                        <button class="btn btn-primary" [disabled]="disablePrevious" (click)="previous()">Prev</button>
+                    </div>
+                    <div class="col-6 p-2 text-center">
+                        <button class="btn btn-primary" *ngIf="showSave()" (click)="save()">Save</button>
+                        <button class="btn btn-primary" *ngIf="showSubmit()" [disabled]="!(enableSubmit$() | async)" (click)="submit()">Submit</button>
+                    </div>
+                    <div class="col-3 p-2 text-right">
+                        <button class="btn btn-primary" [disabled]="disableNext" (click)="next()">Next</button>
+                    </div>
+                </div>
+
+                <div class="row m-1">
+                    <div class="col p-2">
+                        <p *ngFor="let alert of alerts">
+                            <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+                        </p>
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+
+                <div class="row m-1">
+                    <div class="col-3 p-2 text-left">
+                        <button class="btn btn-primary" [disabled]="disablePrevious" (click)="previous()">Prev</button>
+                    </div>
+                    <div class="col-6 p-2 text-center">
+                        <button class="btn btn-primary" *ngIf="showSave()" (click)="save()">Save</button>
+                        <button class="btn btn-primary" *ngIf="showSubmit()" [disabled]="!(enableSubmit$() | async)" (click)="submit()">Submit</button>
+                    </div>
+                    <div class="col-3 p-2 text-right">
+                        <button class="btn btn-primary" [disabled]="disableNext" (click)="next()">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
